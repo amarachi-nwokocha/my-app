@@ -42,7 +42,7 @@ const VisionarySection = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl md:text-4xl font-bold text-[#FFD700] mb-4">
-            Victor "Pharoah" Ugochukwu 
+            Victor &quot;Pharoah&quot; Ugochukwu 
           </h3>
           <p className="text-lg leading-7 mb-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget neque a ipsum iaculis fermentum.
