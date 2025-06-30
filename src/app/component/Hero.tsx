@@ -23,7 +23,7 @@ const Hero = () => {
             <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
                 <div className="absolute top-0 left-0 w-full h-full">
                     <video
-                        src="/banner-vid.mp4"
+                        src="/banvid.mp4"
                         autoPlay
                         muted
                         loop
