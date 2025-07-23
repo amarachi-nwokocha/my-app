@@ -1,60 +1,50 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const staffList = [
   {
-    name: 'Jane Doe',
+    name: 'Ugochukwu Victor',
+    position: 'Creative Director',
+    image: '/Pharoah.jpg',
+  },
+  {
+    name: 'Dr. Andrew',
+    position: 'General Manager',
+    image: '/RobertAndrew.jpg',
+  },
+  {
+    name: 'Ali Younes',
+    position: 'Head Artist (Abuja)',
+    image: '/AliYones.jpg',
+  },
+  {
+    name: 'Ab Atallah',
     position: 'Tattoo Artist',
-    image: 'https://images.unsplash.com/photo-1590080876576-c2a122a2b1a4?auto=format&fit=crop&w=600&q=80',
+    image: '/YabAttalah.jpg',
   },
   {
-    name: 'John Smith',
-    position: 'Studio Manager',
-    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600',
+    name: 'Agbakuru Lucky ',
+    position: 'Studio Manager (Abuja)',
+    image: '/StudioManagerLucky.jpg',
   },
   {
-    name: 'Aisha Bello',
-    position: 'Piercing Specialist',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
+    name: 'Nwawuine John',
+    position: 'Studio Manager (Lagos)',
+    image: '/John.jpg',
   },
   {
-    name: 'Victor U.',
-    position: 'Lead Artist',
-    image: 'https://images.unsplash.com/photo-1610076262634-e9a953de7f42?auto=format&fit=crop&w=600&q=80',
+    name: 'Eziefule Onyinye',
+    position: 'HR',
+    image: '/Onyinye.jpg',
   },
   {
-    name: 'Kemi Ade',
-    position: 'Assistant Artist',
-    image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
-  {
-    name: 'Uche Obi',
-    position: 'Client Relations',
-    image: 'https://images.unsplash.com/photo-1614282281511-3d9d86e9a998?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    name: 'Tola Ayo',
-    position: 'Tattoo Intern',
-    image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    name: 'Chuks Leo',
-    position: 'Ink Technician',
-    image: 'https://images.unsplash.com/photo-1590080876644-df1251a450f6?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    name: 'Zara Kai',
-    position: 'Makeup Collaborator',
-    image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    name: 'Emeka Jnr.',
-    position: 'Logistics',
-    image: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=600&q=80',
+    name: 'Martha Odoh',
+    position: 'Piercer',
+    image: '/MarthaOdoh.jpg',
   },
 ];
 
@@ -63,15 +53,27 @@ const StaffSection = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (!scrollRef.current) return;
-    const scrollAmount = 320; // Slightly increased for better movement
+    const scrollAmount = 320;
     scrollRef.current.scrollBy({
       left: direction === 'left' ? -scrollAmount : scrollAmount,
       behavior: 'smooth',
     });
   };
 
+  // Auto scroll effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      scroll('right');
+    }, 5000); // Scroll every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="staff" className="w-full bg-black text-white py-20 px-6 md:px-20 relative overflow-hidden">
+    <section
+      id="staff"
+      className="w-full bg-black text-white py-20 px-6 md:px-20 relative overflow-hidden"
+    >
       <h2 className="text-3xl md:text-5xl font-bold text-[#FFD700] text-center mb-10">
         Meet The Team
       </h2>
@@ -101,32 +103,43 @@ const StaffSection = () => {
         ref={scrollRef}
         className="flex overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory space-x-6 scrollbar-hide"
         style={{
-          scrollbarWidth: 'none', // Firefox
-          msOverflowStyle: 'none', // IE and Edge
-          WebkitOverflowScrolling: 'touch', // iOS smooth scrolling
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          WebkitOverflowScrolling: 'touch',
         }}
       >
-        {staffList.map((staff, index) => (
-          <motion.div
-            key={index}
-            className="bg-[#1c1c1c] rounded-lg shadow-lg p-4 w-[250px] flex-shrink-0 snap-start transition-transform hover:scale-105 duration-300"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            viewport={{ once: true }}
-          >
-            <div className="relative w-full h-44 rounded overflow-hidden mb-4">
-              <Image
-                src={staff.image}
-                alt={staff.name}
-                fill
-                className="object-cover rounded"
-              />
-            </div>
-            <h3 className="text-lg font-semibold text-[#FFD700]">{staff.name}</h3>
-            <p className="text-sm text-gray-300">{staff.position}</p>
-          </motion.div>
-        ))}
+        {staffList.map((staff, index) => {
+          const [loaded, setLoaded] = useState(false);
+
+          return (
+            <motion.div
+              key={index}
+              className="bg-[#1c1c1c] rounded-lg shadow-lg overflow-hidden w-[250px] flex-shrink-0 snap-start transition-transform hover:scale-105 duration-300"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative w-full h-44">
+                {!loaded && (
+                  <div className="absolute inset-0 bg-gray-700 animate-pulse"></div>
+                )}
+                <Image
+                  src={staff.image}
+                  alt={staff.name}
+                  fill
+                  className={`object-cover transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                  style={{ objectPosition: 'center 20%' }}
+                  onLoad={() => setLoaded(true)}
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-[#FFD700]">{staff.name}</h3>
+                <p className="text-sm text-gray-300">{staff.position}</p>
+              </div>
+            </motion.div>
+          );
+        })}
       </motion.div>
 
       <style jsx>{`
