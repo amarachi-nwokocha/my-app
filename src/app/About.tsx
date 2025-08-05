@@ -5,12 +5,11 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 const images = [
-    '/slide1.jpg',
-    '/slide2.jpg',
-    '/slide4.jpg',
-    '/slide5.jpg',
-    '/slide7.jpg',
-    '/slide6.jpg'
+    '/slide4.png',
+     '/slide5.JPG',
+    '/slide6.JPG',
+    '/slide8.jpg',
+    '/slide9.jpg',
 ];
 
 const About = () => {
@@ -37,11 +36,11 @@ const About = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                <h2 className="text-3xl md:text-5xl font-bold text-[#FFD700] mb-6">
-                    Pharoah’s Hound Tattoos – Beyond ink
+                <h2 className="font-sirnic text-3xl md:text-5xl font-bold text-[#FFD700] mb-6">
+                    Pharoah&apos;s Hound Tattoos – Beyond ink
                 </h2>
                 <p className="text-lg leading-7">
-                    At Pharoah’s Hound, we believe your skin is the perfect canvas for bold, unforgettable art.
+                    At Pharoah&apos;s Hound, we believe your skin is the perfect canvas for bold, unforgettable art.
                     We believe in great connections, bonds and friendships as clients become family.
                     Located in the heart of Abuja and Lagos, our private studios offer a calm, creative space
                     where your ideas are transformed into custom tattoos that speak volumes.
@@ -49,7 +48,7 @@ const About = () => {
                     Led by award-winning tattoo artist Pharoah (Victor Ugochukwu), we specialize in every tattoo style
                     including black and grey realism, portrait work, and custom concept designs.
                     Every piece is thoughtfully crafted, with attention to detail, technique, and your personal story.
-                    We’re all about clean lines, good vibes, and flawless execution.
+                    We&apos;re all about clean lines, good vibes, and flawless execution.
                 </p>
             </motion.div>
 

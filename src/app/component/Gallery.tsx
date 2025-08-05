@@ -10,10 +10,12 @@ const galleryImages = [
     '/gallery4.jpg',
     '/gallery5.jpg',
     '/gallery6.jpg',
-    '/gallery7.jpg',
+     '/gallery7.JPG',
     '/gallery8.jpg',
     '/gallery9.jpg',
-    '/gallery10.png', '/gallery11.png', '/gallery12.png',
+    '/gallery10.png', 
+    '/gallery11.png', 
+    '/gallery12.png',
 ];
 
 const GallerySection = () => {

@@ -50,6 +50,9 @@ const staffList = [
 
 const StaffSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [loadedImages, setLoadedImages] = useState<boolean[]>(
+    Array(staffList.length).fill(false)
+  );
 
   const scroll = (direction: 'left' | 'right') => {
     if (!scrollRef.current) return;
@@ -109,7 +112,15 @@ const StaffSection = () => {
         }}
       >
         {staffList.map((staff, index) => {
-          const [loaded, setLoaded] = useState(false);
+          const isLoaded = loadedImages[index];
+
+          const handleImageLoad = () => {
+            setLoadedImages((prev) => {
+              const updated = [...prev];
+              updated[index] = true;
+              return updated;
+            });
+          };
 
           return (
             <motion.div
@@ -121,16 +132,16 @@ const StaffSection = () => {
               viewport={{ once: true }}
             >
               <div className="relative w-full h-44">
-                {!loaded && (
-                  <div className="absolute inset-0 bg-gray-700 animate-pulse"></div>
+                {!isLoaded && (
+                  <div className="absolute inset-0 bg-gray-700 animate-pulse" />
                 )}
                 <Image
                   src={staff.image}
                   alt={staff.name}
                   fill
-                  className={`object-cover transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                  className={`object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
                   style={{ objectPosition: 'center 20%' }}
-                  onLoad={() => setLoaded(true)}
+                  onLoad={handleImageLoad}
                 />
               </div>
               <div className="p-4">

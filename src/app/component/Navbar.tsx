@@ -35,7 +35,7 @@ console.log(scrolled);
         {/* Logo */}
         <Link href="/">
           <Image
-            src="/logo.jpg"
+            src="/logo.png"
             alt="Tattoo Shop Logo"
             width={140}
             height={40}

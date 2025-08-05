@@ -38,12 +38,12 @@ const Hero = () => {
             {/* Hero Content */}
             <div className="relative z-10 flex flex-col items-center justify-center text-center text-white h-full px-4">
                 <motion.h1
-                    className="text-5xl md:text-7xl font-bold"
+                    className=" font-sirnic text-5xl md:text-7xl font-bold"
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
                 >
-                    Ink That Tells Your Story
+               Pharoah&apos;s Hound Tattoo Studio
                 </motion.h1>
 
                 <motion.p
@@ -52,7 +52,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 1 }}
                 >
-                    Custom tattoos crafted with precision and passion — Book your session today with our award-winning artists.
+                       Ink That Tells Your Story  Custom tattoos crafted with precision and passion — Book your session today with our award-winning artists.
                 </motion.p>
             </div>
         </div>
