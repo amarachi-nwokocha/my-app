@@ -1,11 +1,30 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const AppointmentSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const iframeRef = useRef(null);
+
+  const handleIframeLoad = () => {
+    if (isSubmitted) {
+      setIsLoading(false);
+      alert('Your consultation request has been submitted!');
+      setIsSubmitted(false);
+      setIsModalOpen(false);
+    }
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setIsSubmitted(true);
+    e.target.submit(); // submit form manually
+  };
 
   return (
     <>
@@ -67,67 +86,109 @@ const AppointmentSection = () => {
             </button>
             <h2 className="text-2xl font-semibold mb-4">Book a Consultation</h2>
             <form
-              action="https://docs.google.com/forms/d/e/1FAIpQLSdzVqNv50M8aTX-y9Jve-e8abzYvQHM6uLjYVvwzZoEO3owSQ/formResponse"
+              action="https://script.google.com/macros/s/AKfycbzRqSuTD1VlPIB_JWqv5jZVg-15mwKpQh4xoNOPr2Mp7Y3Qg7h0ryTWugsym2_baXMlJw/exec"
               method="POST"
+              target="hidden_iframe"
+              onSubmit={handleSubmit}
               className="space-y-4"
             >
               <input
                 type="text"
-                name="entry.297239666"
+                name="entry.2005620554"
                 placeholder="Name"
                 required
                 className="w-full border p-2 rounded"
               />
+
               <input
                 type="email"
-                name="entry.99809765"
+                name="entry.1421932342"
                 placeholder="Email"
                 required
                 className="w-full border p-2 rounded"
               />
+
+              <input
+                type="tel"
+                name="entry.639789003"
+                placeholder="Phone Number"
+                required
+                className="w-full border p-2 rounded"
+              />
+
               <select
-                name="entry.854492443"
+                name="entry.1313946817"
                 required
                 className="w-full border border-[#FFD700] bg-black/95 text-[#FFD700] p-2 rounded-md"
               >
                 <option value="">Select Tattoo Size</option>
                 <option value="Large">Large</option>
-                <option value="Medium size">Medium</option>
+                <option value="Medium">Medium</option>
                 <option value="Small">Small</option>
               </select>
 
+              <input
+                type="text"
+                name="entry.1977567922"
+                placeholder="Tattoo Position (e.g. Arm, Chest)"
+                required
+                className="w-full border p-2 rounded"
+              />
+
+              <textarea
+                name="entry.1089208838"
+                placeholder="Additional Info (Optional)"
+                className="w-full border p-2 rounded"
+              ></textarea>
+
               <select
-                name="entry.location"
+                name="entry.1787960992"
                 required
                 className="w-full border border-[#FFD700] bg-black/95 text-[#FFD700] p-2 rounded-md"
               >
                 <option value="">Select Location</option>
                 <option value="Lagos">Lagos</option>
                 <option value="Abuja">Abuja</option>
+                <option value="Home Service">Home Service</option>
               </select>
 
-              <input
-                type="text"
-                name="entry.1228550198"
-                placeholder="Tattoo Position"
-                required
-                className="w-full border p-2 rounded"
-              />
-              <label className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  name="entry.125273652"
-                  value="Yes"
-                />
-                Cover Up
-              </label>
+              <div className="flex flex-col gap-2">
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="entry.1056672704"
+                    value="Cover Up"
+                    required
+                  />
+                  Cover Up
+                </label>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="entry.1056672704"
+                    value="Fresh Tattoo"
+                  />
+                  Fresh Tattoo
+                </label>
+              </div>
+
               <button
                 type="submit"
-                className="bg-black text-[#FFD700] border border-rounded border-[#FFD700] px-6 py-2 rounded hover:bg-[#FFD700] hover:text-black font-bold "
+                disabled={isLoading}
+                className={`bg-black text-[#FFD700] border border-[#FFD700] px-6 py-2 rounded font-bold transition ${
+                  isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#FFD700] hover:text-black'
+                }`}
               >
-                Submit
+                {isLoading ? 'Submitting...' : 'Submit'}
               </button>
             </form>
+
+            <iframe
+              name="hidden_iframe"
+              ref={iframeRef}
+              onLoad={handleIframeLoad}
+              style={{ display: 'none' }}
+            ></iframe>
           </div>
         </div>
       )}
