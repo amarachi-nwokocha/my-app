@@ -3,6 +3,8 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import type { FormEvent } from 'react';
+
 
 const AppointmentSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,12 +21,13 @@ const AppointmentSection = () => {
     }
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setIsSubmitted(true);
-    e.target.submit(); // submit form manually
-  };
+ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsLoading(true);
+  setIsSubmitted(true);
+  (e.target as HTMLFormElement).submit(); // cast to HTMLFormElement
+};
+
 
   return (
     <>
