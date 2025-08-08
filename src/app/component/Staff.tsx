@@ -23,7 +23,7 @@ const staffList = [
   },
   {
     name: 'Ab Atallah',
-    position: 'Tattoo Artist',
+    position: 'Tattoo Artist (Lagos)',
     image: '/YabAttalah.jpg',
   },
   {

@@ -21,7 +21,7 @@ const Footer = () => {
           </p>
 
           <div className="flex gap-4 mt-4">
-            <Link href="https://instagram.com" target="_blank" className="hover:scale-110 transition-transform">
+            <Link href="https://www.instagram.com/pharoahshoundtattoostudios/" target="_blank" className="hover:scale-110 transition-transform">
               <Instagram size={24} />
             </Link>
             <Link href="https://twitter.com" target="_blank" className="hover:scale-110 transition-transform">

@@ -71,7 +71,7 @@ const VisionarySection = () => {
 
             Wise, relentless, and deeply compassionate, the Pharaoh of Pharaoh&apos;s Hound is not just a ruler by blood, but a beacon of leadership by spirit — a guardian of legacy and a champion for all who run beneath the desert stars.</p>
           <div className="flex items-center space-x-6 text-[#FFD700] text-2xl">
-            <Link href="https://instagram.com/pharoahtattoos" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <Link href="https://www.instagram.com/pharoahshoundtattoostudios/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
               <Instagram size={28} />
             </Link>
             <Link href="https://twitter.com/pharoahtattoos" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">

@@ -66,7 +66,7 @@ const AppointmentSection = () => {
           </p>
           <p className="text-lg leading-7 mb-6">
             <strong>Ready to Get Inkspired?</strong><br />
-            Whether it’s your first tattoo or your fiftieth, we’re here to bring your vision to life.
+            Whether it&apos;s your first tattoo or your fiftieth, we&apos;re here to bring your vision to life.
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
@@ -79,8 +79,9 @@ const AppointmentSection = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-          <div className="bg-black text-amber-300 p-6 rounded-md w-full max-w-xl relative">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 overflow-y-auto">
+          <div className='min-h-screen flex justify-center items-center p-4'>
+          <div className=" text-amber-300 p-6 rounded-md w-full max-w-xl relative">
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-3 right-3 text-[#FFD700] text-4xl font-bold"
@@ -155,7 +156,7 @@ const AppointmentSection = () => {
                 <option value="Home Service">Home Service</option>
               </select>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-row gap-4">
                 <label className="flex items-center gap-2">
                   <input
                     type="radio"
@@ -192,6 +193,7 @@ const AppointmentSection = () => {
               onLoad={handleIframeLoad}
               style={{ display: 'none' }}
             ></iframe>
+          </div>
           </div>
         </div>
       )}
