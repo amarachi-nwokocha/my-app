@@ -24,10 +24,10 @@ const Footer = () => {
             <Link href="https://www.instagram.com/pharoahshoundtattoostudios/" target="_blank" className="hover:scale-110 transition-transform">
               <Instagram size={24} />
             </Link>
-            <Link href="https://twitter.com" target="_blank" className="hover:scale-110 transition-transform">
+            <Link href="https://x.com/pharoahs_hound?s=21" target="_blank" className="hover:scale-110 transition-transform">
               <Twitter size={24} />
             </Link>
-            <Link href="https://snapchat.com" target="_blank" className="hover:scale-110 transition-transform">
+            <Link href="https://www.snapchat.com/add/pharoah0009" target="_blank" className="hover:scale-110 transition-transform">
               <Ghost size={24} />
             </Link>
           </div>

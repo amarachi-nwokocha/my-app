@@ -54,7 +54,7 @@ const About = () => {
 
             {/* Right Slideshow */}
             <motion.div
-                className="md:w-1/2 relative aspect-video w-full overflow-hidden rounded-lg shadow-lg"
+                className="md:w-1/2 relative h-[400px] w-full overflow-hidden rounded-lg shadow-lg"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
