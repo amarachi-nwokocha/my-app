@@ -32,7 +32,7 @@ const staffList = [
     image: '/StudioManagerLucky.jpg',
   },
   {
-    name: 'Nwawuine John',
+    name: 'Nnnawuihe John',
     position: 'Studio Manager (Lagos)',
     image: '/John.jpg',
   },
