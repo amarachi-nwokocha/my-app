@@ -43,7 +43,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
                 >
-               Pharoah&apos;s Hound Tattoo Studio
+                    Pharoah&apos;s Hound Tattoo Studio
                 </motion.h1>
 
                 <motion.p
@@ -52,7 +52,9 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 1 }}
                 >
-                       Ink That Tells Your Story  Custom tattoos crafted with precision and passion — Book your session today with our award-winning artists.
+                    <span className='text-[#FFD700]'> Ink</span> That Tells Your
+                    Story Custom tattoos                <span className='text-[#FFD700]'>crafted</span> with <span className='text-[#FFD700]'> precision</span> and <span className='text-[#FFD700]'>passion. </span>
+                    Book your session today with our <span className='text-[#FFD700]'>award-winning </span>  artists.
                 </motion.p>
             </div>
         </div>

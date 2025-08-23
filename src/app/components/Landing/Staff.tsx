@@ -6,53 +6,21 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const staffList = [
-  {
-    name: 'Ugochukwu Victor',
-    position: 'Creative Director',
-    image: '/Pharoah.jpg',
-  },
-  {
-    name: 'Dr. Andrew',
-    position: 'General Manager',
-    image: '/RobertAndrew.jpg',
-  },
-  {
-    name: 'Ali Younes',
-    position: 'Head Artist (Abuja)',
-    image: '/AliYones.jpg',
-  },
-  {
-    name: 'Ab Atallah',
-    position: 'Tattoo Artist (Lagos)',
-    image: '/YabAttalah.jpg',
-  },
-  {
-    name: 'Agbakuru Lucky ',
-    position: 'Studio Manager (Abuja)',
-    image: '/StudioManagerLucky.jpg',
-  },
-  {
-    name: 'Nnnawuihe John',
-    position: 'Studio Manager (Lagos)',
-    image: '/John.jpg',
-  },
-  {
-    name: 'Eziefule Onyinye',
-    position: 'HR',
-    image: '/Onyinye.jpg',
-  },
-  {
-    name: 'Martha Odoh',
-    position: 'Piercer',
-    image: '/MarthaOdoh.jpg',
-  },
+  { name: 'Ugochukwu Victor', position: 'Creative Director', image: '/Pharoah.jpg' },
+  { name: 'Dr. Andrew', position: 'General Manager', image: '/RobertAndrew.jpg' },
+  { name: 'Ali Younes', position: 'Head Artist (Abuja)', image: '/AliYones.jpg' },
+  { name: 'Ab Atallah', position: 'Tattoo Artist (Lagos)', image: '/YabAttalah.jpg' },
+  { name: 'Agbakuru Lucky ', position: 'Studio Manager (Abuja)', image: '/StudioManagerLucky.jpg' },
+  { name: 'Nnnawuihe John', position: 'Studio Manager (Lagos)', image: '/John.jpg' },
+  { name: 'Eziefule Onyinye', position: 'HR', image: '/Onyinye.jpg' },
+  { name: 'Martha Odoh', position: 'Piercer', image: '/MarthaOdoh.jpg' },
 ];
 
 const StaffSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [loadedImages, setLoadedImages] = useState<boolean[]>(
-    Array(staffList.length).fill(false)
-  );
+  const sectionRef = useRef<HTMLElement>(null);
+  const [loadedImages, setLoadedImages] = useState<boolean[]>(Array(staffList.length).fill(false));
+  const [inView, setInView] = useState(false);
 
   const scroll = (direction: 'left' | 'right') => {
     if (!scrollRef.current) return;
@@ -63,17 +31,30 @@ const StaffSection = () => {
     });
   };
 
-  // Auto scroll effect
+  // Auto scroll effect (only runs when in view)
   useEffect(() => {
+    if (!inView) return;
     const interval = setInterval(() => {
       scroll('right');
-    }, 5000); // Scroll every 5 seconds
-
+    }, 5000);
     return () => clearInterval(interval);
+  }, [inView]);
+
+  // Detect when section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
   }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="staff"
       className="w-full bg-black text-white py-20 px-6 md:px-20 relative overflow-hidden"
     >
@@ -104,7 +85,9 @@ const StaffSection = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         ref={scrollRef}
-        className="flex overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory space-x-6 scrollbar-hide"
+        className={`flex ${
+          inView ? 'overflow-x-auto' : 'overflow-hidden'
+        } overflow-y-hidden scroll-smooth snap-x snap-mandatory space-x-6 scrollbar-hide`}
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -132,14 +115,14 @@ const StaffSection = () => {
               viewport={{ once: true }}
             >
               <div className="relative w-full h-44">
-                {!isLoaded && (
-                  <div className="absolute inset-0 bg-gray-700 animate-pulse" />
-                )}
+                {!isLoaded && <div className="absolute inset-0 bg-gray-700 animate-pulse" />}
                 <Image
                   src={staff.image}
                   alt={staff.name}
                   fill
-                  className={`object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className={`object-cover transition-opacity duration-300 ${
+                    isLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
                   style={{ objectPosition: 'center 20%' }}
                   onLoad={handleImageLoad}
                 />

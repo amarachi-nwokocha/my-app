@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
         </div>
          <div className="md:w-1/2">
-          <h2 className="text-4xl font-bold mb-2">Pharaoh’s Hound</h2>
+          <h2 className="text-4xl font-bold mb-2">Pharaoh&apos;s Hound</h2>
           <p className="text-lg leading-snug">
             Beyond Ink. Where stories live on skin. Tattoos that speak louder than words.
           </p>
