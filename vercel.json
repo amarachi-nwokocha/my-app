@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/7for7/:path*",
-      "destination": "https://7for7.vercel.app/7for7/:path*"
+      "destination": "https://7for7.vercel.app/:path*"
     }
   ]
 }
