@@ -10,7 +10,7 @@ const navItems = [
   { label: 'Staff', href: '#staff' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
-   { label: '7for7', href: '/7for7' },
+   { label: '7for7', href: 'https://voting.pharoahshoundtattoostudios.com/' },
 ];
 
 const Navbar = () => {
