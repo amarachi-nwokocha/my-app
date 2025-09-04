@@ -11,7 +11,6 @@ const staffList = [
   { name: 'Ali Younes', position: 'Head Artist (Abuja)', image: '/AliYones.jpg' },
   { name: 'Ab Atallah', position: 'Tattoo Artist (Lagos)', image: '/YabAttalah.jpg' },
   { name: 'Agbakuru Lucky ', position: 'Studio Manager (Abuja)', image: '/StudioManagerLucky.jpg' },
-  { name: 'Nnnawuihe John', position: 'Studio Manager (Lagos)', image: '/John.jpg' },
   { name: 'Eziefule Onyinye', position: 'HR', image: '/Onyinye.jpg' },
   { name: 'Martha Odoh', position: 'Piercer', image: '/MarthaOdoh.jpg' },
 ];

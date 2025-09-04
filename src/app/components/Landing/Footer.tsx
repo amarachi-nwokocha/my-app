@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Instagram, Twitter, Ghost, Mail, MapPin } from 'lucide-react';
+import { Instagram, Twitter, Ghost, Mail, MapPin,  } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -37,6 +37,9 @@ const Footer = () => {
           <p className="text-lg leading-snug">
             Beyond Ink. Where stories live on skin. Tattoos that speak louder than words.
           </p>
+          <Link href="/privacy" className='hover:underline'>          
+          <p className='mt-6 text-lg'>Terms And Conditions</p>
+          </Link>
         </div>
       </div>
 
@@ -44,7 +47,7 @@ const Footer = () => {
       <div className="w-full border-t border-black/30 mt-8 pt-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-base text-black/60 px-2">
           <p className="text-center md:text-left">
-            &copy; {new Date().getFullYear()} Pharaoh’s Hound Tattoos. All rights reserved.
+            &copy; {new Date().getFullYear()} Pharaoh&apos;s Hound Tattoos. All rights reserved.
           </p>
         
         </div>

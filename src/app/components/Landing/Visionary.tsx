@@ -63,13 +63,18 @@ const VisionarySection = () => {
             Victor &quot;Pharoah&quot; Ugochukwu
           </h3>
           <p className="text-lg leading-7 mb-6">
-            Pharaoh of Pharaoh&apos;s Hound is more than a symbol of ancient nobility. He is a living legend whose influence transcends myth and time. As a descendant of the divine hunters of old, he embodies grace, speed, and wisdom. But beyond the sand-swept echoes of his royal lineage lies a heart devoted to service and upliftment.
+            <p>Victor Emenike Ugochukwu, widely known as Pharaoh, is a Nigerian entrepreneur, tattoo artist, actor, philanthropist, and investor whose work continues to redefine the creative landscape in Africa. Born in Kano, Nigeria, to parents of Anambra and Edo heritage, Pharaoh grew up surrounded by cultural diversity that would later influence his art and identity.</p>
 
-            A known patron of the forgotten and protector of the voiceless, the Pharaoh has dedicated his reign to philanthropic work across lost kingdoms and nomadic clans.
+<p>His love for art began in childhood, expressed through drawing and painting.</p>
 
-            Under his rule, the Circle of the Golden Hound, a council founded to safeguard nature, history, and balance, has flourished. His initiatives in education, healing, and cultural preservation have turned forgotten oases into thriving centers of knowledge and art.
+<p>Since 2018, Pharaoh has carved out a space for himself as one of Nigeria&rsquo;s most respected tattoo artists. As Founder and CEO of Pharaoh&rsquo;s Hound, he set out to close the gap in an industry once stigmatized and undervalued, introducing professionalism, artistry, and premium client experiences. Beyond tattoos, he is also a businessman with ventures in real estate, film acting, and smart investments.</p>
 
-            Wise, relentless, and deeply compassionate, the Pharaoh of Pharaoh&apos;s Hound is not just a ruler by blood but a beacon of leadership by spirit, a guardian of legacy, and a champion for all who run beneath the desert stars.</p>
+<p>Pharaoh&rsquo;s influence extends beyond business. He has trained over 50 young tattoo artists, empowering a new generation of creatives, while also giving back through philanthropy, by feeding the streets, supporting struggling businesses, and donating to charities and foundations.</p>
+
+<p>When he is not working, Pharaoh enjoys biking, painting, drawing, film acting, and creating. His vision is simple yet profound: to elevate African tattoo artistry to global recognition while proving that tattoos are not just ink, they are living art, memory, and identity.</p>
+
+
+            </p>
           <div className="flex items-center space-x-6 text-[#FFD700] text-2xl">
             <Link href="https://www.instagram.com/pharoahshoundtattoostudios/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
               <Instagram size={28} />
